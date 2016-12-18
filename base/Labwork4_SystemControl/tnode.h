@@ -5,10 +5,10 @@
 class TNode
 {
 	int ProcessorAmount;
-	int Priority;
 	int TactTime;
 	TNode *pNext;
 public:
+	int Priority;
 	TNode(int ProcAmount,int Time)
 	{
 		ProcessorAmount=ProcAmount;
