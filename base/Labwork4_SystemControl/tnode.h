@@ -6,11 +6,13 @@ class TNode
 {
 	int ProcessorAmount;
 	int Priority;
+	int TactTime;
 	TNode *pNext;
 public:
-	TNode(int var)
+	TNode(int ProcAmount,int Time)
 	{
-		ProcessorAmount=var;
+		ProcessorAmount=ProcAmount;
+		TactTime = Time;
 		Priority=0;
 		pNext= nullptr;
 	}
