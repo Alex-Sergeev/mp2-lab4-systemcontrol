@@ -1,7 +1,6 @@
 #ifndef _TNODE_H_
 #define _TNODE_H_
 
-
 struct TNode
 {
 	int ProcessorAmount;
@@ -15,6 +14,18 @@ struct TNode
 		TactTime = Time;
 		Priority=0;
 		pNext= nullptr;
+	}
+
+	bool operator==(const TNode &tmp) const
+	{
+		if ((TactTime == tmp.TactTime)&&(Priority==tmp.Priority)&&(ProcessorAmount==tmp.ProcessorAmount))
+			return 1;
+		return 0;
+	}
+
+	bool operator!=(const TNode &tmp) const
+	{
+		return !(*this == tmp);
 	}
 };
 
