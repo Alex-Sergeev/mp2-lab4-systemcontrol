@@ -90,7 +90,7 @@ void SystemControl::ControlSystemSimulation()
 	for (int i = 0; i < WorkTime; i++)
 	{
 		FinishingObjective();
-		if ((1 / ((rand() % 5)+1)) > AddThreshold)
+		if (1.0*(rand() % 100)/100 > AddThreshold)
 		{
 			cout << "Введите зачаду:" << endl;
 			cout << "Кол-во процессоров для задачи" << endl;
