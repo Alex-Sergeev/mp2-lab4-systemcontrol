@@ -72,6 +72,8 @@ void SystemControl::FinishingObjective()
 void SystemControl::ShowResults()
 {
 	setlocale(LC_ALL, "Russian");
+	cout << endl;
+	cout << "      Результаты" << endl;
 	cout <<"Выполнено задач" << endl;
 	cout << ObjectiveCompleted << endl;
 	cout << "Число задач в очереди"<< endl;
@@ -92,13 +94,13 @@ void SystemControl::ControlSystemSimulation()
 		FinishingObjective();
 		if (1.0*(rand() % 100)/100 > AddThreshold)
 		{
-			cout << "Введите зачаду:" << endl;
+			cout << "Введите задачу:" << endl;
 			cout << "Кол-во процессоров для задачи" << endl;
 			do
 			{
 				cin >> ObjProc;
 				if ((ObjProc < 1) || (ObjProc > 64))
-					cout << "Кол-во пролцессоров должно быть больше 0 и меньше 64" << endl;
+					cout << "Кол-во процессоров должно быть больше 0 и меньше 64" << endl;
 				else
 					break;
 			} while (true);
