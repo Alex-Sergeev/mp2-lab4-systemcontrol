@@ -29,8 +29,8 @@ void SystemControl::ObjectiveToPerformance()
 			{
 				ProccessorAmount[AmountOfObjectives] = Queue.GetObjective(i).ProcessorAmount;
 				FreeProcessors = FreeProcessors - Queue.GetObjective(i).ProcessorAmount;
-				CurrentTimeOfObjectiveWork[AmountOfObjectives] = Queue.GetObjective(i).TactTime;
-				TimeOfObjectiveWork[AmountOfObjectives] = 0;
+				TimeOfObjectiveWork[AmountOfObjectives] = Queue.GetObjective(i).TactTime;
+				CurrentTimeOfObjectiveWork[AmountOfObjectives] = 0;
 				AmountOfObjectives++;
 				Queue.DeleteObjective(i);
 			}
@@ -115,6 +115,8 @@ void SystemControl::ControlSystemSimulation()
 		}
 		ObjectiveToPerformance();
 		Queue.IncreasePriority();
+		for (int j = 0; j < AmountOfObjectives; j++)
+			CurrentTimeOfObjectiveWork[j]++;
 		AmountOfIdleTacts = AmountOfIdleTacts + FreeProcessors;
 	}
 	ObjectiveCompleted = ObjectiveCompleted + AmountOfObjectives;
