@@ -114,6 +114,7 @@ void SystemControl::ControlSystemSimulation()
 			SystemAddObjective(ObjTime, ObjProc);
 		}
 		ObjectiveToPerformance();
+		Queue.IncreasePriority();
 		AmountOfIdleTacts = AmountOfIdleTacts + FreeProcessors;
 	}
 	ObjectiveCompleted = ObjectiveCompleted + AmountOfObjectives;
