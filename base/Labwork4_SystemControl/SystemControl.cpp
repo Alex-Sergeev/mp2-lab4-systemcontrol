@@ -1,4 +1,4 @@
-#include "TQueue.h"
+ï»¿#include "TQueue.h"
 #include "SystemControl.h"
 #include "TNode.h"
 #include <iostream>
@@ -72,13 +72,13 @@ void SystemControl::FinishingObjective()
 void SystemControl::ShowResults()
 {
 	setlocale(LC_ALL, "Russian");
-	cout <<"Âûïîëíåíî çàäà÷" << endl;
+	cout <<"Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð·Ð°Ð´Ð°Ñ‡" << endl;
 	cout << ObjectiveCompleted << endl;
-	cout << "×èñëî çàäà÷ â î÷åðåäè"<< endl;
+	cout << "Ð§Ð¸ÑÐ»Ð¾ Ð·Ð°Ð´Ð°Ñ‡ Ð² Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸"<< endl;
 	cout <<Queue.getCurrentSize() << endl;
-	cout << "×èñëî ïðîïóùåííûõ çàäà÷"<< endl;
+	cout << "Ð§Ð¸ÑÐ»Ð¾ Ð¿Ñ€Ð¾Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð°Ð´Ð°Ñ‡"<< endl;
 	cout << ObjectiveSkipped << endl;
-	cout <<"×èñëî òàêòîâ ïðîñòîÿ" << endl;
+	cout <<"Ð§Ð¸ÑÐ»Ð¾ Ñ‚Ð°ÐºÑ‚Ð¾Ð² Ð¿Ñ€Ð¾ÑÑ‚Ð¾Ñ" << endl;
 	cout << AmountOfIdleTacts << endl;
 }
 
@@ -92,22 +92,22 @@ void SystemControl::ControlSystemSimulation()
 		FinishingObjective();
 		if (1.0*(rand() % 100)/100 > AddThreshold)
 		{
-			cout << "Ââåäèòå çà÷àäó:" << endl;
-			cout << "Êîë-âî ïðîöåññîðîâ äëÿ çàäà÷è" << endl;
+			cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð°Ñ‡Ð°Ð´Ñƒ:" << endl;
+			cout << "ÐšÐ¾Ð»-Ð²Ð¾ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð¾Ð² Ð´Ð»Ñ Ð·Ð°Ð´Ð°Ñ‡Ð¸" << endl;
 			do
 			{
 				cin >> ObjProc;
 				if ((ObjProc < 1) || (ObjProc > 64))
-					cout << "Êîë-âî ïðîëöåññîðîâ äîëæíî áûòü áîëüøå 0 è ìåíüøå 64" << endl;
+					cout << "ÐšÐ¾Ð»-Ð²Ð¾ Ð¿Ñ€Ð¾Ð»Ñ†ÐµÑÑÐ¾Ñ€Ð¾Ð² Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ 0 Ð¸ Ð¼ÐµÐ½ÑŒÑˆÐµ 64" << endl;
 				else
 					break;
 			} while (true);
-			cout << "Âðåìÿ âûïîëíåíèÿ(òàêòû)" << endl;
+			cout << "Ð’Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ(Ñ‚Ð°ÐºÑ‚Ñ‹)" << endl;
 			do
 			{
 				cin >> ObjTime;
 				if ((ObjTime < 1) || (ObjTime > 11))
-					cout << "Êîë-âî òàêòîâ èñïîëíåíèÿ äîëæíî áûòü áîëüøå 0 è ìåíüøå 11" << endl;
+					cout << "ÐšÐ¾Ð»-Ð²Ð¾ Ñ‚Ð°ÐºÑ‚Ð¾Ð² Ð¸ÑÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ 0 Ð¸ Ð¼ÐµÐ½ÑŒÑˆÐµ 11" << endl;
 				else
 					break;
 			} while (true);
