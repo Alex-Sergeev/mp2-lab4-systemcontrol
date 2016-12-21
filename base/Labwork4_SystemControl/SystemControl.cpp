@@ -56,13 +56,14 @@ void SystemControl::FinishingObjective()
 	{
 		if (CurrentTimeOfObjectiveWork[i] == TimeOfObjectiveWork[i])
 		{
-			for (int j = 0; j < AmountOfObjectives-1; j++)
+			FreeProcessors = FreeProcessors + ProccessorAmount[i];
+			for (int j = i; j < AmountOfObjectives; j++)
 			{
-				FreeProcessors = FreeProcessors + ProccessorAmount[i];
 				ProccessorAmount[j] = ProccessorAmount[j + 1];
 				TimeOfObjectiveWork[j] = TimeOfObjectiveWork[j + 1];
 				CurrentTimeOfObjectiveWork[j] = CurrentTimeOfObjectiveWork[j + 1];
 			}
+			i--;
 			AmountOfObjectives--;
 			ObjectiveCompleted++;
 		}
@@ -94,6 +95,9 @@ void SystemControl::ControlSystemSimulation()
 		FinishingObjective();
 		if (1.0*(rand() % 100)/100 > AddThreshold)
 		{
+			ObjProc=(rand()%64)+1;
+			ObjTime=(rand()%10)+1;
+			/*
 			cout << "Введите задачу:" << endl;
 			cout << "Кол-во процессоров для задачи" << endl;
 			do
@@ -113,12 +117,14 @@ void SystemControl::ControlSystemSimulation()
 				else
 					break;
 			} while (true);
+			*/
+			
 			SystemAddObjective(ObjTime, ObjProc);
 		}
 		ObjectiveToPerformance();
 		Queue.IncreasePriority();
 		for (int j = 0; j < AmountOfObjectives; j++)
-			CurrentTimeOfObjectiveWork[j]++;
+			CurrentTimeOfObjectiveWork[j]=CurrentTimeOfObjectiveWork[j]+1;
 		AmountOfIdleTacts = AmountOfIdleTacts + FreeProcessors;
 	}
 	ObjectiveCompleted = ObjectiveCompleted + AmountOfObjectives;
